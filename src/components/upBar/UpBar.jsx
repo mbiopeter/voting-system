@@ -9,7 +9,7 @@ import { Link, } from 'react-router-dom';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import HomeIcon from '@mui/icons-material/Home';
 
-const UpBar = () => {
+const UpBar = ({user}) => {
     const [expand, setExpand] = useState(false);
 
     return (
@@ -28,7 +28,7 @@ const UpBar = () => {
                     <div className="flex items-center gap-1 md:gap-3">
                         <Person2OutlinedIcon sx={{ fontSize: { xs: 20, sm: 24, md: 32 } }} />
                         <span className="text-sm lg:text-lg font-medium text-gray-600 capitalize">
-                            Peter
+                            {user && user.username}
                         </span>
                         <button
                             onClick={() => setExpand(!expand)}
@@ -51,12 +51,12 @@ const UpBar = () => {
                                     <span className="text-sm font-medium text-gray-600 capitalize">Votting</span>
                                 </div>
                             </Link>
-                            <Link to="/admin">
+                            {user && user.role !== 'user' &&<Link to="/admin">
                                 <div className="flex cursor-pointer items-center gap-3">
                                     <AccountBalanceWalletIcon className="text-gray-600" />
                                     <span className="text-sm font-medium text-gray-600 capitalize">admin</span>
                                 </div>
-                            </Link>
+                            </Link>}
                             <div className="flex cursor-pointer items-center gap-3">
                                 <LogoutIcon className="text-gray-600" />
                                 <span className="text-sm font-medium text-gray-600 capitalize">Log Out</span>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const Candidate = ({ candidate, voted, setVoted }) => {
+const Candidate = ({ candidate, voted, setVoted,votting }) => {
     return (
         <div onClick={voted ? null : setVoted} className={`flex flex-row justify-between items-center rounded-sm shadow-md w-full lg:w-[45%] p-5`}>
             <div className='flex flex-row gap-5 items-center'>
@@ -16,7 +16,7 @@ const Candidate = ({ candidate, voted, setVoted }) => {
                 </div>
             </div>
             <div>
-                <button className={`py-1 transition-colors duration-1000 flex cursor-pointer font-[600] text-white px-2 rounded-sm ${voted ? 'bg-green-600' : 'bg-red-600'}`}>VOTE</button>
+                <button className={`py-1 transition-colors duration-1000 flex cursor-pointer font-[600] text-white px-2 rounded-sm ${votting || voted ? 'bg-green-600' : 'bg-red-600'}`}>{ votting ? 'VOTTING' :voted ? 'VOTED': 'VOTE'}</button>
             </div>
         </div>
     );

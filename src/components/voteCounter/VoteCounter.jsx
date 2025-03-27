@@ -17,7 +17,7 @@ const VoteCounter = ({ candidate }) => {
                 </div>
             </div>
             <div>
-                <span className='text-[#000000] text-[16px] capitalize font-[600]'>{candidate.voteCount}</span>
+                <span className='text-[#000000] text-[16px] capitalize font-[600]'>{candidate.vote_count}</span>
             </div>
         </div>
     );
